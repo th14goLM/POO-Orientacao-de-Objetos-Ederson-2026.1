@@ -21,9 +21,9 @@ class Cachorro extends Animal {
 }
 
 void main(String[] args){
- Animal a = new Animal("Bicho");
- a.emitirSom();
+    Animal a = new Animal("Bicho");
+    a.emitirSom();
 
- Cachorro c = new Cachorro("Max");
- c.emitirSom();
+    Cachorro c = new Cachorro("Max");
+    c.emitirSom();
 }
