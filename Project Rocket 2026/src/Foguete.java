@@ -82,6 +82,6 @@ public class Foguete {
             IO.println("Satélite carregado: Nenhum");
         }
 
-        IO.println("+------------------------------+");
+        IO.println("+---------------------------------------+");
     }
 }

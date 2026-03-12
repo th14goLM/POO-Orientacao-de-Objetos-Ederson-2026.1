@@ -182,6 +182,6 @@ public class Satelite {
         }else {
             IO.println("| Mensagem: " + mensagem);
         }
-        IO.println("+--------------------------------+");
+        IO.println("+-------------------------------------+");
     }
 }

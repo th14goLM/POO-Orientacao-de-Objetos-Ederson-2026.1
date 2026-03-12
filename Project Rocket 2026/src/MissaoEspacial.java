@@ -2,12 +2,12 @@ void main() {
     CentroControle controle = new CentroControle();
 
     // Construtor de foguetes e satelites
-    Foguete falcon = new Foguete("Falcon XII", 80, 30);
-    Foguete apollo = new Foguete("Apollo XI", 120, 60);
+    Foguete falcon = new Foguete("Falcon XII", 80, 50);
+    Foguete apollo = new Foguete("Apollo XI", 120, 50);
 
     Satelite sputnik = new Satelite("Sputnik", 250, 50, "A ser definida!","Espionagem");
-    Satelite hubble = new Satelite("Hubble", 400, 5, "GEO", "Científico");
-    Satelite jamesWebb = new Satelite("JamesWebb", 850, 20, "Órbita Lunar", "Comunicação");
+    Satelite hubble = new Satelite("Hubble", 400, 25, "GEO", "Científico");
+    Satelite jamesWebb = new Satelite("JamesWebb", 850, 0, "Órbita Lunar", "Comunicação");
 
     // Chamada para adicionar os Foguetes
     controle.adicionarFoguete(falcon);
@@ -23,7 +23,7 @@ void main() {
     IO.println();
 
     // Abastecendo e iniciando a Missão de observação
-    falcon.abastecer(0);
+    falcon.abastecer(50);
     boolean missaoFalcon = controle.iniciarMissao("Falcon XII", "Hubble");
     if (missaoFalcon){
         IO.println();
@@ -41,7 +41,7 @@ void main() {
     }
 
    // Abastecendo e iniciando a Missão de comunicação
-    apollo.abastecer(15);
+    apollo.abastecer(25);
     boolean missaoApollo = controle.iniciarMissao("Apollo XI", "JamesWebb");
     if(missaoApollo){
         IO.println();
