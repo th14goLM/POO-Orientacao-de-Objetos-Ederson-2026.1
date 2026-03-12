@@ -159,13 +159,12 @@ public class Satelite {
             IO.println("⚠ Satélite não está ativo e não pode enviar dados. Status atual: " + status);
             return;
         }
-
-        if(energia < 10) {
+        if(energia <= 20) {
             IO.println("⚠ Energia insuficiente para enviar os dados!");
+            setMensagem("⚠ Energia insuficiente para enviar os dados!");
             return;
         }
-
-        energia -= 10;
+        energia -= 20;
 
         IO.println("+--- Mensagem Enviada ---+");
         IO.println("Satélite " + nome + ": " + mensagem);
@@ -173,14 +172,13 @@ public class Satelite {
 
     // Método para impressão de relatório do satélite
     public void relatorioSatelite() {
-
         IO.println("+---Relatório do Satélite " + nome + "---+");
         IO.println("| Massa: " + massaKg + " kg");
         IO.println("| Energia: " + energia);
         IO.println("| Tipo de satelite: " + tipoSatelite);
         IO.println("| Órbita: " + orbitaAlvo);
         IO.println("| Status: " + status);
-        if (mensagem == null){
+        if (mensagem == null||!status.equals("Ativo")){
             IO.println("| Mensagem: Nenhuma mensagem foi enviada!!");
         }else {
             IO.println("| Mensagem: " + mensagem);
