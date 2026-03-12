@@ -41,7 +41,7 @@ class Checkout{
     }
     public void finalizarCompra(Double total){
         if(total<=0) {
-            throw new IllegalArgumentException("Valor de compra inválido, otal deve ser positivo!");
+            throw new IllegalArgumentException("Valor de compra inválido, total deve ser positivo!");
         }
             // O checkout não sabe como pagar, só chama o contrato, a classe de abstração
             formaPagamento.pagar(total);
