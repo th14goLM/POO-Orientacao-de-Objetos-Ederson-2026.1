@@ -7,7 +7,7 @@ void main() {
 
     Satelite sputnik = new Satelite("Sputnik", 250, 50, "A ser definida!","Espionagem");
     Satelite hubble = new Satelite("Hubble", 400, 25, "GEO", "Científico");
-    Satelite jamesWebb = new Satelite("JamesWebb", 850, 0, "Órbita Lunar", "Comunicação");
+    Satelite jamesWebb = new Satelite("JamesWebb", 850, 20, "Órbita Lunar", "Comunicação");
 
     // Chamada para adicionar os Foguetes
     controle.adicionarFoguete(falcon);
