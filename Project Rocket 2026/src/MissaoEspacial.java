@@ -2,8 +2,8 @@ void main() {
     CentroControle controle = new CentroControle();
 
     // Construtor de foguetes e satelites
-    Foguete falcon = new Foguete("Falcon XII", 80, 80);
-    Foguete apollo = new Foguete("Apollo XI", 120, 0);
+    Foguete falcon = new Foguete("Falcon XII", 80, 30);
+    Foguete apollo = new Foguete("Apollo XI", 120, 60);
 
     Satelite sputnik = new Satelite("Sputnik", 250, 50, "A ser definida!","Espionagem");
     Satelite hubble = new Satelite("Hubble", 400, 5, "GEO", "Científico");
@@ -23,32 +23,40 @@ void main() {
     IO.println();
 
     // Abastecendo e iniciando a Missão de observação
-    falcon.abastecer(50);
-    controle.iniciarMissao("Falcon XII", "Hubble");
-    IO.println();
+    falcon.abastecer(0);
+    boolean missaoFalcon = controle.iniciarMissao("Falcon XII", "Hubble");
+    if (missaoFalcon){
+        IO.println();
 
-    // Satélite em órbita da Terra
-    controle.ativarPaineisSatelite("Hubble");
-    IO.println();
-    controle.definirOrbitaSatelite("Hubble");
-    controle.ativarSateliteOrbita("Hubble");
-    controle.definirTipoSatelite("Hubble");
-    IO.println();
-    controle.enviarDadosSatelite("Hubble");
+        // Satélite em órbita da Terra
+        controle.ativarPaineisSatelite("Hubble");
+        IO.println();
+        controle.definirOrbitaSatelite("Hubble");
+        controle.ativarSateliteOrbita("Hubble");
+        controle.definirTipoSatelite("Hubble");
+        IO.println();
+        controle.enviarDadosSatelite("Hubble");
+    }else{
+        IO.println("❌ Missão falhou. Operações do satélite canceladas.");
+    }
 
-    // Abastecendo e iniciando a Missão de comunicação
-    apollo.abastecer(100);
-    controle.iniciarMissao("Apollo XI", "JamesWebb");
-    IO.println();
+   // Abastecendo e iniciando a Missão de comunicação
+    apollo.abastecer(15);
+    boolean missaoApollo = controle.iniciarMissao("Apollo XI", "JamesWebb");
+    if(missaoApollo){
+        IO.println();
 
-    // Satélite de comunicação no espaço
-    controle.ativarPaineisSatelite("JamesWebb");
-    IO.println();
-    controle.definirOrbitaSatelite("JamesWebb");
-    controle.ativarSateliteOrbita("JamesWebb");
-    controle.definirTipoSatelite("JamesWebb");
-    IO.println();
-    controle.enviarDadosSatelite("JamesWebb");
+        // Satélite de comunicação
+        controle.ativarPaineisSatelite("JamesWebb");
+        IO.println();
+        controle.definirOrbitaSatelite("JamesWebb");
+        controle.ativarSateliteOrbita("JamesWebb");
+        controle.definirTipoSatelite("JamesWebb");
+        IO.println();
+        controle.enviarDadosSatelite("JamesWebb");
+    }else{
+        IO.println("❌ Missão falhou. Operações do satélite canceladas.");
+    }
 
     // Imprime o relatório após todas as instancias
     IO.println();

@@ -82,7 +82,6 @@ public class Satelite {
             IO.println("⚠ Energia do satélite está no máximo!");
             return;
         }
-
         if (!paineisAtivos) {
             IO.println("Iniciando abertura dos painéis...");
             IO.println("☀ Painéis solares ativados!");
@@ -182,7 +181,7 @@ public class Satelite {
             IO.println("| Mensagem: Nenhuma mensagem foi enviada!!");
         }else {
             IO.println("| Mensagem: " + mensagem);
-            IO.println("+--------------------------------+");
         }
+        IO.println("+--------------------------------+");
     }
 }

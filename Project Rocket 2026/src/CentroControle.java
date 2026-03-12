@@ -3,8 +3,8 @@ import java.util.List;
 
 public class CentroControle {
 
-    private List<Foguete> foguetes;
-    private List<Satelite> satelites;
+    private final List<Foguete> foguetes;
+    private final List<Satelite> satelites;
 
     // Classe para criar lista de objetos
     public CentroControle(){
@@ -41,28 +41,21 @@ public class CentroControle {
     }
 
     // Método para iniciar missão espacial, verificando seu status e imprimindo lançamento
-    public void iniciarMissao(String nomeFoguete, String nomeSatelite){
-
+    public boolean iniciarMissao(String nomeFoguete, String nomeSatelite){
         Foguete foguete = buscarFoguetePorNome(nomeFoguete);
         Satelite satelite = buscarSatelitePorNome(nomeSatelite);
+        boolean sucesso = foguete.lancar();
 
         if(foguete == null || satelite == null){
             IO.println("⚠ Foguete ou satélite não encontrado.");
-            return;
+            return false;
         }
-
-        if(foguete.getStatus().equals("Em órbita") || foguete.getStatus().equals("Falha")){
-            IO.println("⚠ Foguete já foi lançado ou falhou.");
-            return;
+        if(sucesso){
+            foguete.setSateliteCarregado(satelite);
+            IO.println("🛰 Satélite carregado: " + nomeSatelite);
+            return true;
         }
-
-        foguete.setSateliteCarregado(satelite);
-
-        IO.println("🚀 Missão iniciada!");
-        IO.println("Foguete: " + nomeFoguete);
-        IO.println("Satélite carregado: " + nomeSatelite);
-
-        foguete.lancar();
+        return false;
     }
 
     // Método para ativar os paineis do satélite
@@ -107,6 +100,16 @@ public class CentroControle {
         s.enviarDados();
     }
 
+    // Método de definição do tipo de satélite
+    public void definirTipoSatelite(String nome){
+        Satelite s  = buscarSatelitePorNome(nome);
+        if(s == null){
+            IO.println("⚠ Satélite não encontrado.");
+            return;
+        }
+        s.definirTipo(s.getTipoSatelite());
+    }
+
     // Método para mostrar relatório da missão
     public void statusMissao(){
         IO.println("+--- STATUS DA MISSÃO ---+");
@@ -119,15 +122,5 @@ public class CentroControle {
         for(Satelite s : satelites){
             s.relatorioSatelite();
         }
-    }
-
-    // Método de definição do tipo de satélite
-    public void definirTipoSatelite(String nome){
-        Satelite s  = buscarSatelitePorNome(nome);
-        if(s == null){
-            IO.println("⚠ Satélite não encontrado.");
-            return;
-        }
-        s.definirTipo(s.getTipoSatelite());
     }
 }

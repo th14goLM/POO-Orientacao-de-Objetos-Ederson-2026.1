@@ -57,12 +57,15 @@ public class Foguete {
     }
 
     // Método para lançamento do foguete
-    public void lancar() {
+    public boolean lancar() {
         if (combustivelRestante > 50) {
             status = "Lançando";
             IO.println("🚀 " + nome + " está pronto para lançamento!");
+            return true;
         } else {
+            setStatus("Falha");
             IO.println("⚠ " + nome + " não possui combustível suficiente!");
+            return false;
         }
     }
 
