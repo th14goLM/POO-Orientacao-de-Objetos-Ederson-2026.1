@@ -4,12 +4,14 @@ void main() {
     // Construtor de foguetes e satelites
     Foguete falcon = new Foguete("Falcon XII", 80, 50);
     Foguete apollo = new Foguete("Apollo XI", 120, 50);
+    Foguete roadster = new Foguete("Roadster", 80, 50);
 
     Satelite sputnik = new Satelite("Sputnik", 250, 50, "A ser definida!", Satelite.TipoSatelite.ESPIONAGEM);
     Satelite hubble = new Satelite("Hubble", 400, 25, "GEO", Satelite.TipoSatelite.CIENTIFICO);
-    Satelite jamesWebb = new Satelite("JamesWebb", 850, 20, "Órbita Lunar", Satelite.TipoSatelite.ESPIONAGEM);
+    Satelite jamesWebb = new Satelite("JamesWebb", 850, 20, "Órbita Lunar", Satelite.TipoSatelite.COMUNICACAO);
 
     // Chamada para adicionar os Foguetes
+    controle.adicionarFoguete(roadster);
     controle.adicionarFoguete(falcon);
     controle.adicionarFoguete(apollo);
 
@@ -21,6 +23,24 @@ void main() {
     // Imprime o Status da missão com dados dos foguetes e dos satélites
     controle.statusMissao();
     IO.println();
+
+    // Abastecendo e iniciando missão de espionagem
+    roadster.abastecer(50);
+    boolean missaoRoadster = controle.iniciarMissao("Roadster", "Sputnik");
+    if (missaoRoadster){
+        IO.println();
+
+        // Satélite em órbita da Terra
+        controle.ativarPaineisSatelite("Sputnik");
+        IO.println();
+        controle.definirOrbitaSatelite("Sputnik");
+        controle.ativarSateliteOrbita("Sputnik");
+        controle.definirTipoSatelite("Sputnik");
+        IO.println();
+        controle.enviarDadosSatelite("Sputnik");
+    }else{
+        IO.println("❌ Missão falhou. Operações do satélite canceladas.");
+    }
 
     // Abastecendo e iniciando a Missão de observação
     falcon.abastecer(50);
