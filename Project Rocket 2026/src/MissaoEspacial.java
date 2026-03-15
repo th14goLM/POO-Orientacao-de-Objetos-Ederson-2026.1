@@ -5,9 +5,9 @@ void main() {
     Foguete falcon = new Foguete("Falcon XII", 80, 50);
     Foguete apollo = new Foguete("Apollo XI", 120, 50);
 
-    Satelite sputnik = new Satelite("Sputnik", 250, 50, "A ser definida!","Espionagem");
-    Satelite hubble = new Satelite("Hubble", 400, 25, "GEO", "Científico");
-    Satelite jamesWebb = new Satelite("JamesWebb", 850, 20, "Órbita Lunar", "Comunicação");
+    Satelite sputnik = new Satelite("Sputnik", 250, 50, "A ser definida!", Satelite.TipoSatelite.ESPIONAGEM);
+    Satelite hubble = new Satelite("Hubble", 400, 25, "GEO", Satelite.TipoSatelite.CIENTIFICO);
+    Satelite jamesWebb = new Satelite("JamesWebb", 850, 20, "Órbita Lunar", Satelite.TipoSatelite.ESPIONAGEM);
 
     // Chamada para adicionar os Foguetes
     controle.adicionarFoguete(falcon);

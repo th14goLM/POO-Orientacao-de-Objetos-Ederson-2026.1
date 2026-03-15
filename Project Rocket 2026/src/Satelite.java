@@ -1,21 +1,40 @@
 public class Satelite {
+
+    // Define mensagem que cada tipo de satélite vai mandar
+    public enum TipoSatelite {
+        CIENTIFICO("Enviando dados meteorológicos sobre a Terra: 25° Graus Celsius, umidade em 90%"),
+        COMUNICACAO("Estabeleceu comunicação interespacial com sucesso!"),
+        ESPIONAGEM("Captando sinais e imagens estratégicas da superfície.");
+
+        private final String mensagemPadrao;
+
+        TipoSatelite(String mensagemPadrao) {
+            this.mensagemPadrao = mensagemPadrao;
+        }
+
+        public String getMensagemPadrao() {
+            return mensagemPadrao;
+        }
+    }
+
     private String nome;
     private String orbitaAlvo;
     private String status;
     private String mensagem;
-    private String tipoSatelite;
+    private TipoSatelite tipoSatelite;
     private float massaKg;
     private float energia;
 
     private boolean paineisAtivos;
 
-    public Satelite(String nome, float massaKg, float energia, String orbitaAlvo, String tipoSatelite) {
+    public Satelite(String nome, float massaKg, float energia, String orbitaAlvo, TipoSatelite tipoSatelite) {
         this.nome = nome;
         this.massaKg = massaKg;
         this.energia = energia;
         this.orbitaAlvo = orbitaAlvo;
         this.status = "Em solo";
         this.tipoSatelite = tipoSatelite;
+        this.mensagem = tipoSatelite != null ? tipoSatelite.getMensagemPadrao() : "Sem mensagem";
     }
 
     // Getters de satélite
@@ -43,7 +62,7 @@ public class Satelite {
         return mensagem;
     }
 
-    public String getTipoSatelite() {
+    public TipoSatelite getTipoSatelite() {
         return tipoSatelite;
     }
 
@@ -62,10 +81,6 @@ public class Satelite {
 
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
-    }
-
-    public void setTipo(String tipoSatelite) {
-        this.tipoSatelite = tipoSatelite;
     }
 
     public void setStatus(String status) {
@@ -92,26 +107,15 @@ public class Satelite {
     }
 
     // Método para definição de tipo do satélite
-    public void definirTipo(String tipoSatelite) {
-        if(tipoSatelite == null || tipoSatelite.isEmpty()){
+    public void definirTipo(TipoSatelite novoTipo) {
+        if(novoTipo == null){
             IO.println("⚠ Tipo de satélite inválido.");
             return;
         }
-        switch(tipoSatelite){
-            case "Científico":
-                setMensagem("Enviando dados meteorológicos sobre a Terra: 25° Graus Celsius, humidade em 90%");
-                break;
-            case "Comunicação":
-                setMensagem("Estabeleceu comunicação interespacial com sucesso!");
-                break;
-            case "Espionagem":
-                setMensagem("Captando sinais e imagens estratégicas da superfície.");
-                break;
-            default:
-                IO.println("⚠ Tipo de satélite desconhecido.");
-                return;
-        }
-        this.tipoSatelite = tipoSatelite;
+
+        this.tipoSatelite = novoTipo;
+        this.mensagem = novoTipo.getMensagemPadrao();
+        IO.println("✅ Tipo de satélite definido como: " + novoTipo.name());
     }
 
     // Método para exibir menu com órbitas

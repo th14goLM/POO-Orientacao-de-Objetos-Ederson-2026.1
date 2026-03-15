@@ -44,12 +44,14 @@ public class CentroControle {
     public boolean iniciarMissao(String nomeFoguete, String nomeSatelite){
         Foguete foguete = buscarFoguetePorNome(nomeFoguete);
         Satelite satelite = buscarSatelitePorNome(nomeSatelite);
-        boolean sucesso = foguete.lancar();
 
         if(foguete == null || satelite == null){
             IO.println("⚠ Foguete ou satélite não encontrado.");
             return false;
         }
+
+        boolean sucesso = foguete.lancar();
+
         if(sucesso){
             foguete.setSateliteCarregado(satelite);
             IO.println("🛰 Satélite carregado: " + nomeSatelite);
