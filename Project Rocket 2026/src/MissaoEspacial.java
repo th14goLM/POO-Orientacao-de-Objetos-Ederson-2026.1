@@ -40,7 +40,7 @@ void main() {
         IO.println("❌ Missão falhou. Operações do satélite canceladas.");
     }
 
-   // Abastecendo e iniciando a Missão de comunicação
+    // Abastecendo e iniciando a Missão de comunicação
     apollo.abastecer(25);
     boolean missaoApollo = controle.iniciarMissao("Apollo XI", "JamesWebb");
     if(missaoApollo){
