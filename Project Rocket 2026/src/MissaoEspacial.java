@@ -2,18 +2,18 @@ void main() {
     CentroControle controle = new CentroControle();
 
     // Construtor de foguetes e satelites
-    Foguete falcon = new Foguete("Falcon XII", 80, 50);
-    Foguete apollo = new Foguete("Apollo XI", 120, 50);
-    Foguete roadster = new Foguete("Roadster", 80, 50);
+    Foguete falcon = new Foguete("Falcon XII", 800, 50);
+    Foguete apollo = new Foguete("Apollo XI", 1200, 50);
+    Foguete roadster = new Foguete("Roadster", 150, 100);
 
-    Satelite sputnik = new Satelite("Sputnik", 250, 50, "A ser definida!", Satelite.TipoSatelite.ESPIONAGEM);
+    Satelite sputnik = new Satelite("Sputnik", 250, 100, "A ser definida!", Satelite.TipoSatelite.ESPIONAGEM);
     Satelite hubble = new Satelite("Hubble", 400, 25, "GEO", Satelite.TipoSatelite.CIENTIFICO);
     Satelite jamesWebb = new Satelite("JamesWebb", 850, 20, "Órbita Lunar", Satelite.TipoSatelite.COMUNICACAO);
 
     // Chamada para adicionar os Foguetes
-    controle.adicionarFoguete(roadster);
     controle.adicionarFoguete(falcon);
     controle.adicionarFoguete(apollo);
+    controle.adicionarFoguete(roadster);
 
     // Chamada para adicionar os satélites
     controle.adicionarSatelite(sputnik);

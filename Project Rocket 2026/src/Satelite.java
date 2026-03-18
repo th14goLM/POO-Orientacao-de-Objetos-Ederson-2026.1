@@ -58,10 +58,6 @@ public class Satelite {
         return status;
     }
 
-    public String getMensagem() {
-        return mensagem;
-    }
-
     public TipoSatelite getTipoSatelite() {
         return tipoSatelite;
     }

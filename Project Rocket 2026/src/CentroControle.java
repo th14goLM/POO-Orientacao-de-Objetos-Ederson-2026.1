@@ -53,9 +53,13 @@ public class CentroControle {
         boolean sucesso = foguete.lancar();
 
         if(sucesso){
-            foguete.setSateliteCarregado(satelite);
-            IO.println("🛰 Satélite carregado: " + nomeSatelite);
-            return true;
+            if (satelite.getMassaKg()>foguete.getCargaMaxima()){
+                return false;
+            }else {
+                foguete.setSateliteCarregado(satelite);
+                IO.println("🛰 Satélite carregado: " + nomeSatelite);
+                return true;
+            }
         }
         return false;
     }
