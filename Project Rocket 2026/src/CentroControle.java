@@ -40,7 +40,7 @@ public class CentroControle {
         return null;
     }
 
-    // Método para iniciar missão espacial, verificando seu status e imprimindo lançamento
+    // Método para iniciar missão espacial, verificando seu status e a carga do foguete
     public boolean iniciarMissao(String nomeFoguete, String nomeSatelite){
         Foguete foguete = buscarFoguetePorNome(nomeFoguete);
         Satelite satelite = buscarSatelitePorNome(nomeSatelite);
@@ -50,18 +50,17 @@ public class CentroControle {
             return false;
         }
 
+        if (satelite.getMassaKg() > foguete.getCargaMaxima()){
+            IO.println("❌ Falha: O satélite " + nomeSatelite + " é muito pesado para o foguete " + nomeFoguete + ".");
+            return false;
+        }
+
+        foguete.setSateliteCarregado(satelite);
+        IO.println("🛰 Satélite carregado: " + nomeSatelite);
+
         boolean sucesso = foguete.lancar();
 
-        if(sucesso){
-            if (satelite.getMassaKg()>foguete.getCargaMaxima()){
-                return false;
-            }else {
-                foguete.setSateliteCarregado(satelite);
-                IO.println("🛰 Satélite carregado: " + nomeSatelite);
-                return true;
-            }
-        }
-        return false;
+        return sucesso;
     }
 
     // Método para ativar os paineis do satélite

@@ -56,15 +56,28 @@ public class Foguete {
         }
     }
 
-    // Método para lançamento do foguete
+    // Método para lançamento do foguete verificando parâmetros
     public boolean lancar() {
-        if (combustivelRestante > 50) {
-            status = "Lançando";
-            IO.println("🚀 " + nome + " está pronto para lançamento!");
+        if (status.equals("Lançado")) {
+            IO.println("⚠ O foguete " + nome + " já está no espaço!");
+            return false;
+        }
+
+        if (combustivelRestante >= 50) {
+
+            combustivelRestante -= 50;
+            status = "Lançado";
+
+            IO.println("🚀 " + nome + " lançado com sucesso! Combustível restante: " + combustivelRestante + " toneladas.");
+
+            if (sateliteCarregado != null) {
+                sateliteCarregado.setStatus("No espaço");
+            }
+
             return true;
         } else {
             setStatus("Falha");
-            IO.println("⚠ " + nome + " não possui combustível suficiente!");
+            IO.println("⚠ " + nome + " não possui combustível suficiente! (Mínimo: 50 toneladas)");
             return false;
         }
     }
