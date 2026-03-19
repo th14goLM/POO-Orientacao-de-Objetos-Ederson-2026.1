@@ -1,4 +1,4 @@
-# 📚 Repositório de Programação Orientada a Objetos (POO)
+# 📚 Repositório de Programação Orientada a Objetos
 
 Este repositório foi criado com o objetivo de armazenar **atividades, exercícios e projetos** desenvolvidos durante os estudos de **Programação Orientada a Objetos (POO)**.
 
