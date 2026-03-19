@@ -89,16 +89,32 @@ public class Satelite {
 
     // Método de ativação de paineis
     public void ativarPaineis() {
+        if (status == "Em solo") {
+            IO.println("⚠ Não é possível abrir os painéis! Satélite ainda está em solo!");
+            return;
+        }
+
         if (energia >= 100) {
             IO.println("⚠ Energia do satélite está no máximo!");
             return;
         }
+
         if (!paineisAtivos) {
             IO.println("Iniciando abertura dos painéis...");
             IO.println("☀ Painéis solares ativados!");
             paineisAtivos = true;
-            energia = Math.min(100, energia + 20);
-            IO.println("Energia atual: " + energia);
+            recarregarEnergia();
+        }else {
+            IO.println("⚠ Painéis já estão ativados!!");
+        }
+    }
+
+    public void recarregarEnergia() {
+        if (paineisAtivos) {
+            energia = Math.min(100, energia + 35);
+            IO.println("🔋 Energia recarregada via painéis solares! Energia atual: " + energia);
+        } else {
+            IO.println("⚠ Os painéis solares estão fechados. Abra-os primeiro para recarregar.");
         }
     }
 

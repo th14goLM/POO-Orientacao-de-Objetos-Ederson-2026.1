@@ -3,7 +3,7 @@ void main() {
 
     // Construtor de foguetes e satelites
     Foguete falcon = new Foguete("Falcon XII", 800, 50);
-    Foguete apollo = new Foguete("Apollo XI", 1200, 0);
+    Foguete apollo = new Foguete("Apollo XI", 1200, 30);
     Foguete roadster = new Foguete("Roadster", 750, 100);
 
     Satelite sputnik = new Satelite("Sputnik", 250, 90, "A ser definida!", Satelite.TipoSatelite.ESPIONAGEM);
@@ -36,6 +36,7 @@ void main() {
         IO.println();
         controle.definirOrbitaSatelite("Hubble");
         controle.ativarSateliteOrbita("Hubble");
+        controle.carregarEnergia("Hubble");
         controle.definirTipoSatelite("Hubble");
         IO.println();
         controle.enviarDadosSatelite("Hubble");

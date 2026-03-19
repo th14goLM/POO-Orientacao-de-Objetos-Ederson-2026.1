@@ -73,6 +73,15 @@ public class CentroControle {
         s.ativarPaineis();
     }
 
+    public void carregarEnergia(String nome){
+        Satelite s = buscarSatelitePorNome(nome);
+        if(s == null){
+            IO.println("⚠ Satélite não encontrado.");
+            return;
+        }
+        s.recarregarEnergia();
+    }
+
     // Método que define a órbita do satélite
     public void definirOrbitaSatelite(String nome){
         Satelite s = buscarSatelitePorNome(nome);
