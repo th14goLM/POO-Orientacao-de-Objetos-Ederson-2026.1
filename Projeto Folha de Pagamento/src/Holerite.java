@@ -1,3 +1,6 @@
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class Holerite {
     private Funcionario funcionario;
     private double valorHorasNormais;
@@ -19,13 +22,18 @@ public class Holerite {
 
     /** Impressão do holerite final **/
     public void imprimir() {
-        IO.println("+---- Holerite -----");
-        IO.println("| Funcionario:" + funcionario.getNome() + " |");
-        IO.println("| Salario Normal: R$" + valorHorasNormais + " |");
-        IO.println("| Salario Extras: R$" + valorHorasExtras + " |");
-        IO.println("| Adicional Filhos: R$" + adicionalFilhos + " |");
-        IO.println("+-------------------");
-        IO.println("| Valor Total a receber: R$" + calcularTotal() + " |");
-        IO.println("+-------------------");
+        Locale localBR = new Locale("pt", "BR");
+        NumberFormat formatadorMoeda = NumberFormat.getCurrencyInstance(localBR);
+
+        IO.println("+-----------------------------------+");
+        IO.println(String.format("| %-33s |", "Holerite"));
+        IO.println("+-----------------------------------+");
+        System.out.println("| Funcionário: " + funcionario.getNome());
+        System.out.println("| Salário Normal: " + formatadorMoeda.format(valorHorasNormais));
+        System.out.println("| Salário Extras: " + formatadorMoeda.format(valorHorasExtras));
+        System.out.println("| Adicional Filhos: " + formatadorMoeda.format(adicionalFilhos));
+        IO.println("+-----------------------------------+");
+        IO.println(String.format("| Total:" + formatadorMoeda.format(calcularTotal())));
+        IO.println("+-----------------------------------+");
     }
 }
