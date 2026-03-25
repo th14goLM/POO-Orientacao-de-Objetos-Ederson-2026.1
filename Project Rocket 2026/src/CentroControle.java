@@ -24,7 +24,7 @@ public class CentroControle {
     // Método de buscas para foguete e satélite
     private Foguete buscarFoguetePorNome(String nome){
         for(Foguete f : foguetes){
-            if(f.getNome().equals(nome)){
+            if(f.getNome().equalsIgnoreCase(nome)){
                 return f;
             }
         }
@@ -33,7 +33,7 @@ public class CentroControle {
 
     private Satelite buscarSatelitePorNome(String nome){
         for(Satelite s : satelites){
-            if(s.getNome().equals(nome)){
+            if(s.getNome().equalsIgnoreCase(nome)){
                 return s;
             }
         }

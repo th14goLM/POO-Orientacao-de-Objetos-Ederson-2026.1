@@ -89,7 +89,7 @@ public class Satelite {
 
     // Método de ativação de paineis
     public void ativarPaineis() {
-        if (status == "Em solo") {
+        if (status.equals("Em solo")) {
             IO.println("⚠ Não é possível abrir os painéis! Satélite ainda está em solo!");
             return;
         }
