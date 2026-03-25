@@ -35,7 +35,6 @@ O repositório está organizado em pastas, contendo:
 * Java ☕
 * Programação Orientada a Objetos
 * Estruturas de dados básicas
-* 
 ---
 
 ## 🎯 Objetivo
@@ -65,7 +64,7 @@ Este repositório está em constante atualização conforme novos conteúdos sã
 ## 👨‍💻 Autor
 
 Desenvolvido por **Thiago de Lima Machado**
-Estudante de programação e entusiasta de tecnologia 🚀
+Estudante de programação e entusiasta de tecnologia 
 
 ---
 
