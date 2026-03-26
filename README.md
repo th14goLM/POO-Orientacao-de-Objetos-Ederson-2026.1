@@ -24,7 +24,7 @@ O repositório está organizado em pastas, contendo:
 * 📌 **Projetos práticos**
 
   * Aulas de aprendizagem 
-  * Sistemas simulados (ex: foguetes, satélites, controle de missão)
+  * Sistemas simulados 
   * Aplicações com menu interativo
   * Integração entre múltiplas classes
 
@@ -33,8 +33,10 @@ O repositório está organizado em pastas, contendo:
 ## 🛠️ Tecnologias utilizadas
 
 * Java ☕
-* Programação Orientada a Objetos
-* Estruturas de dados básicas
+* Spring Boot
+* HTML
+* CSS
+* JavaScript
 ---
 
 ## 🎯 Objetivo
