@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class CentroControle {
@@ -125,16 +126,31 @@ public class CentroControle {
     }
 
     // Método para mostrar relatório da missão
-    public void statusMissao(){
+    public void statusMissao() {
         IO.println("+--- STATUS DA MISSÃO ---+");
         IO.println("\n🚀 Foguetes:");
-        for(Foguete f : foguetes){
+        for (Foguete f : foguetes) {
             f.relatorioFoguete();
         }
 
         IO.println("\n🛰 Satélites:");
-        for(Satelite s : satelites){
-            s.relatorioSatelite();
+        if (satelites.isEmpty()) {
+            IO.println("Nenhum satélite registrado.");
+        } else {
+            Iterator<Satelite> it = satelites.iterator();
+
+            if (it.hasNext()) {
+                Satelite s1 = it.next();
+                IO.println("[Primeiro satélite lançado ]");
+                s1.relatorioSatelite();
+            }
+
+            if (it.hasNext()) {
+                IO.println("[Outros satélites no sistema]");
+                it.forEachRemaining((s) -> {
+                    s.relatorioSatelite();
+                });
+            }
         }
     }
 }

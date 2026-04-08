@@ -6,9 +6,9 @@ void main() {
     Foguete apollo = new Foguete("Apollo XI", 1200, 30);
     Foguete roadster = new Foguete("Roadster", 750, 100);
 
-    Satelite sputnik = new Satelite("Sputnik", 250, 90, "A ser definida!", Satelite.TipoSatelite.ESPIONAGEM);
-    Satelite hubble = new Satelite("Hubble", 400, 25, "GEO", Satelite.TipoSatelite.CIENTIFICO);
-    Satelite jamesWebb = new Satelite("JamesWebb", 850, 20, "Órbita Lunar", Satelite.TipoSatelite.COMUNICACAO);
+//    Satelite sputnik = new Satelite("Sputnik", 250, 90, "A ser definida!", Satelite.TipoSatelite.ESPIONAGEM);
+//    Satelite hubble = new Satelite("Hubble", 400, 25, "GEO", Satelite.TipoSatelite.CIENTIFICO);
+//    Satelite jamesWebb = new Satelite("JamesWebb", 850, 20, "Órbita Lunar", Satelite.TipoSatelite.COMUNICACAO);
 
     // Chamada para adicionar os Foguetes
     controle.adicionarFoguete(falcon);
@@ -17,9 +17,9 @@ void main() {
 //    controle.adicionarFoguete(falcon);
 
     // Chamada para adicionar os satélites
-    controle.adicionarSatelite(sputnik);
-    controle.adicionarSatelite(hubble);
-    controle.adicionarSatelite(jamesWebb);
+//    controle.adicionarSatelite(sputnik);
+//    controle.adicionarSatelite(hubble);
+//    controle.adicionarSatelite(jamesWebb);
 
 //    boolean missaoAtiva = true;
 //    while (missaoAtiva) {
@@ -164,4 +164,5 @@ void main() {
     IO.println();
     IO.println("===== RELATÓRIO FINAL DA MISSÃO =====");
     controle.statusMissao();
+
 }
