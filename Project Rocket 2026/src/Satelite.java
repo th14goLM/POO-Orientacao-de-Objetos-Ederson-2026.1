@@ -204,21 +204,4 @@ public class Satelite {
         }
         IO.println("+------------------------------------+");
     }
-
-//    public void RelatorioGeralSatelite(ArrayList<String> listaSatelites ) {
-//        if(listaSatelites.isEmpty()){
-//            IO.println("Nenhum satelite foi encontrado no centro de controle!");
-//            return;
-//        }
-//
-//        Iterator<String> it = listaSatelites.iterator();
-//
-//        if (it.hasNext()) {
-//            String satelitePrincipal = it.next();
-//            IO.println("Primeiro satélite do relatório: " + primeiroSatelite);
-//        }
-//
-//        IO.print("Demais satélites: ");
-//        it.forEachRemaining((satelite) -> IO.print(satelite + " | "));
-//    }
 }
