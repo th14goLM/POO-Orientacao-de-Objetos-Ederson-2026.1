@@ -28,6 +28,9 @@ O repositório está organizado em pastas, contendo:
   * Aplicações com menu interativo
   * Integração entre múltiplas classes
 
+--- 
+## 🗺 Mapa Mental
+https://coggle.it/diagram/adjw8ol63oDFod_V/t/java-o-que-%C3%A9-a-classe-collections-%E2%9D%93/IjN4AaJedMPxdpFkRMir93Dhta-BX0cc0midQunauDs
 ---
 
 ## 🛠️ Tecnologias utilizadas
