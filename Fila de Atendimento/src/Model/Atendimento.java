@@ -8,7 +8,7 @@ public record Atendimento(
         LocalDateTime horaChegada,
         TipoPrioridade prioridade,
         EstadoAtendimento estado
-){
+) {
     public boolean prioritario() {
         return prioridade != TipoPrioridade.NORMAL;
     }
