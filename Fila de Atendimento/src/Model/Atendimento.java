@@ -6,6 +6,7 @@ public record Atendimento(
         Paciente paciente,
         String senha,
         LocalDateTime horaChegada,
+        LocalDateTime horaSaida,
         TipoPrioridade prioridade,
         EstadoAtendimento estado
 ) {

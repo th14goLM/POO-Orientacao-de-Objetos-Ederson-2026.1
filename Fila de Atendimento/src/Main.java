@@ -95,6 +95,7 @@ void chamarProximo(FluxoDeAtendimento fluxo, QueueManager fila) {
         while (!(a.estado() instanceof Finalizado)) {
             println(" └─ " + a.paciente().nome()
                     + " → " + a.estado().getClass().getSimpleName());
+            Thread.sleep(5000);
             a = fluxo.avancar(a);
         }
 
@@ -103,6 +104,9 @@ void chamarProximo(FluxoDeAtendimento fluxo, QueueManager fila) {
 
     } catch (FilaVaziaException e) {
         println("\n  ✘ " + e.getMessage() + "\n");
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+        println("\n  ✘ Atendimento interrompido.\n");
     }
 }
 
@@ -143,12 +147,16 @@ void relatorio(FluxoDeAtendimento fluxo) {
         return;
     }
 
-    hist.forEach(a -> println("• %-20s | %s | Chegada: %s | %s".formatted(
-                    a.paciente().nome(),
-                    a.senha(),
-                    a.horaChegada().toLocalTime().withNano(0),
-                    a.prioritario() ? "PRIORITÁRIO" : "Normal")));
+    for (Atendimento a : hist) {
+        var finalizadoEm = ((Finalizado) a.estado()).finalizadoEm().toLocalTime().withNano(0);
+        println("• %-20s | %s | Chegada: %s | Finalizado: %s | Saída: | %s".formatted(
+                a.paciente().nome(),
+                a.senha(),
+                a.horaChegada().toLocalTime().withNano(0),
+                finalizadoEm,
+                a.prioritario() ? "PRIORITÁRIO" : "Normal"));
 
-    println("\n  Total atendidos : " + hist.size());
-    println("  Cadastros totais: " + fluxo.totalCadastrados() + "\n");
+        println("\n  Total atendidos : " + hist.size());
+        println("  Cadastros totais: " + fluxo.totalCadastrados() + "\n");
+    }
 }

@@ -42,6 +42,7 @@ public class FluxoDeAtendimento {
                 paciente,
                 senha,
                 LocalDateTime.now(),
+                null,
                 prioridade,
                 new Triagem()
         );
@@ -63,6 +64,7 @@ public class FluxoDeAtendimento {
                 atual.paciente(),
                 atual.senha(),
                 atual.horaChegada(),
+                null,
                 atual.prioridade(),
                 proximo);
     }
@@ -71,11 +73,21 @@ public class FluxoDeAtendimento {
      * Grava o atendimento finalizado no histórico.
      */
     public void registrarFinalizado(Atendimento atendimento) {
-        if (!(atendimento.estado() instanceof Finalizado))
+        if (!(atendimento.estado() instanceof Finalizado finalizado))
             throw new IllegalStateException(
                     "Só é possível registrar atendimentos finalizados. Estado atual: " +
                     atendimento.estado().getClass().getSimpleName());
-        historico.add(atendimento);
+
+        Atendimento comHoraSaida = new Atendimento(
+                atendimento.paciente(),
+                atendimento.senha(),
+                atendimento.horaChegada(),
+                LocalDateTime.now(),
+                atendimento.prioridade(),
+                finalizado
+        );
+
+        historico.add(comHoraSaida);
     }
 
     /**
